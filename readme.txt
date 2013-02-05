@@ -11,7 +11,7 @@ Turns WordPress instalation into powerfull pizzeria site backend with ability to
 
 == Description ==
 
-Turns WordPress instalation into powerfull pizzeria site backend with ability to add pizzas, beverages and pasta.
+Turns WordPress instalation into powerfull pizzeria site backend with ability to add pizzas, beverages and pasta. Best, and probably the only one, WordPress plugin for pizzeria website. Give it a try!
 
 == Installation ==
 
