@@ -7,11 +7,11 @@ Stable tag: 1.0.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Turns WordPress instalation into powerfull pizzeria site backend with ability to add pizzas, beverages and pasta. 
+Turns WordPress instalation into powerful pizzeria site backend with ability to add pizzas, beverages and pasta. 
 
 == Description ==
 
-Turns WordPress instalation into powerfull pizzeria site backend with ability to add pizzas, beverages and pasta. Best, and probably the only one, WordPress plugin for pizzeria website. Give it a try!
+Turns WordPress instalation into powerful pizzeria site backend with ability to add pizzas, beverages and pasta. Best, and probably the only one, WordPress plugin for pizzeria website. Give it a try!
 
 == Installation ==
 
