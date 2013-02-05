@@ -17,9 +17,24 @@ Turns WordPress instalation into powerfull pizzeria site backend with ability to
 
 1. Upload plugin's directory to the `/wp-content/plugins/` directory
 1. Activate the plugin through the 'Plugins' menu in WordPress
+
+== Usage ==
+
+To add content, it's easy as adding post. In your administration, you can see another post types except default post and pages. These are called Pizzas, Beverages and Pasta.
+
+You can add them in a way you're used to add standard post or page. Plus, you can set extra params in custom metaboxes on your edit page.
+
+In order to get new post types (pizza, beverage, pasta) to actually appear on your web, you'll have to either:
+
 1. Place `<?php pizza_loop(); ?>` into a copy of your archive template called archive-wp_pizzeria_pizza.php instead of default loop.
 1. Place `<?php beverages_loop(); ?>` into a copy of your archive template called archive-wp_pizzeria_beverage.php instead of default loop.
 1. Place `<?php pasta_loop(); ?>` into a copy of your archive template called archive-wp_pizzeria_pasta.php instead of default loop.
+
+or
+
+1. Place `[pasta]` shortcode into a page where you'd like to display pizzas.
+1. Place `[beverages]` shortcode into a page where you'd like to display beverages.
+1. Place `[pizzas]` shortcode into a page where you'd like to display pasta.
 
 == Changelog ==
 
