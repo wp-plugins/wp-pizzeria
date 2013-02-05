@@ -3,7 +3,7 @@ Contributors: david.binda
 Tags: pizza, pizzeria, wordpress pizzeria
 Requires at least: 3.4
 Tested up to: 3.5.1
-Stable tag: 1.0
+Stable tag: 1.0.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -23,5 +23,7 @@ Turns WordPress instalation into powerfull pizzeria site backend with ability to
 
 == Changelog ==
 
-= 0.5 =
+= 1.0.1 =
+Fix Warning: in_array() [function.in-array]: Wrong datatype for second argument in ...\wp-content\plugins\wp-pizzeria\nav-menu-modifications.php on line 8
+= 1.0 =
 * Inital release
