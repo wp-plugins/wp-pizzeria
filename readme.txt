@@ -18,6 +18,10 @@ Turns WordPress instalation into powerful pizzeria site backend with ability to 
 1. Upload plugin's directory to the `/wp-content/plugins/` directory
 1. Activate the plugin through the 'Plugins' menu in WordPress
 
+== Do you want more functionality? ==
+
+Do not hesitate to ask for it. I'm open to any suggestions. Use the plugin's [support forum](http://wordpress.org/support/plugin/wp-pizzeria "WP Pizzeria support forum on wordpress.org")!
+
 == Usage ==
 
 To add content, it's easy as adding post. In your administration, you can see another post types except default post and pages. These are called Pizzas, Beverages and Pasta.
