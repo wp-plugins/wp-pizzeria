@@ -1,6 +1,6 @@
 === WP Pizzeria ===
 Contributors: david.binda	
-Tags: pizza, pizzeria, wordpress pizzeria
+Tags: pizza, pizzeria, wordpress pizzeria, restaurant, menu, restaurant menu, carte, carte du jour
 Requires at least: 3.4
 Tested up to: 3.5.1
 Stable tag: 1.0.1
