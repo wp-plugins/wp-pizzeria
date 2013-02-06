@@ -11,12 +11,33 @@ Turns WordPress instalation into powerful pizzeria site backend with ability to 
 
 == Description ==
 
-Turns WordPress instalation into powerful pizzeria site backend with ability to add pizzas, beverages and pasta. Best, and probably the only one, WordPress plugin for pizzeria website. Give it a try!
+Turns WordPress instalation into powerful pizzeria site backend with ability to add pizzas, beverages and pasta.
+
+= Multiple pizza sizes and prices =
+
+You get an ability to manage your pizzas in clean, fast and primarily WordPress style. Via plugin's settings page you can add multiple pizza sizes and for each size, you can set custom price.
+
+= Attract your customer =
+
+Plugin displays pizzas in clean menu table with all your customer needs to know - menu number, title, ingrediences, price for various sizes.
+
+But that's not all. Your site visitor is able to filter pizzas by ingrediences and thus he/she is able to find her favorite pizza in few seconds!
 
 == Installation ==
 
 1. Upload plugin's directory to the `/wp-content/plugins/` directory
 1. Activate the plugin through the 'Plugins' menu in WordPress
+
+== Screenshots ==
+
+1. Clean and useful pizza overview for administrators
+2. Frontend pizza filtering for easy choose
+3. Handy extended description for your pizzas
+4. Easy to use settins page
+5. Simple and Quick admin menu
+6. Edit your pizza's fast right from the overview
+7. Ability to add ingredient image
+8. Extended dashboard Right now widget
 
 == Do you want more functionality? ==
 
