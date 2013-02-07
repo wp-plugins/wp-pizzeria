@@ -13,15 +13,19 @@ Turns WordPress instalation into powerful pizzeria site backend with ability to 
 
 Turns WordPress instalation into powerful pizzeria site backend with ability to add pizzas, beverages and pasta.
 
-= Multiple pizza sizes and prices =
-
-You get an ability to manage your pizzas in clean, fast and primarily WordPress style. Via plugin's settings page you can add multiple pizza sizes and for each size, you can set custom price.
-
 = Attract your customer =
 
 Plugin displays pizzas in clean menu table with all your customer needs to know - menu number, title, ingrediences, price for various sizes.
 
 But that's not all. Your site visitor is able to filter pizzas by ingrediences and thus he/she is able to find her favorite pizza in few seconds!
+
+= Multiple pizza sizes and prices =
+
+You get an ability to manage your pizzas in clean, fast and primarily WordPress style. Via plugin's settings page you can add multiple pizza sizes and for each size, you can set custom price.
+
+= Works in any theme =
+
+This plugin provides both template_functions and shortcodes - thus works in any theme you'd like to use.
 
 == Installation ==
 
