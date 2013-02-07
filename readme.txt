@@ -3,7 +3,7 @@ Contributors: david.binda
 Tags: pizza, pizzeria, wordpress pizzeria, restaurant, menu, restaurant menu, carte, carte du jour
 Requires at least: 3.4
 Tested up to: 3.5.1
-Stable tag: 1.0.1
+Stable tag: 1.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -13,15 +13,19 @@ Turns WordPress instalation into powerful pizzeria site backend with ability to 
 
 Turns WordPress instalation into powerful pizzeria site backend with ability to add pizzas, beverages and pasta.
 
-= Multiple pizza sizes and prices =
-
-You get an ability to manage your pizzas in clean, fast and primarily WordPress style. Via plugin's settings page you can add multiple pizza sizes and for each size, you can set custom price.
-
 = Attract your customer =
 
 Plugin displays pizzas in clean menu table with all your customer needs to know - menu number, title, ingrediences, price for various sizes.
 
 But that's not all. Your site visitor is able to filter pizzas by ingrediences and thus he/she is able to find her favorite pizza in few seconds!
+
+= Multiple pizza sizes and prices =
+
+You get an ability to manage your pizzas in clean, fast and primarily WordPress style. Via plugin's settings page you can add multiple pizza sizes and for each size, you can set custom price.
+
+= Works in any theme =
+
+This plugin provides both template_functions and shortcodes - thus works in any theme you'd like to use.
 
 == Installation ==
 
