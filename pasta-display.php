@@ -40,7 +40,8 @@ function wp_pizzeria_pasta_display_func() {
 			$class .= ' ' . $category->slug;	
 		}
 		$output .= "\n\t\t" . '<tr class="'.$class.'">';
-		$output .= "\n\t\t\t" . '<td class="col1 menu-number">' . get_post_meta( get_the_ID(), '_wp_pizzeria_number', true) . '</td>';
+		global $post;
+		$output .= "\n\t\t\t" . '<td class="col1 menu-number">' . $post->menu_order . '</td>';
 		$output .= "\n\t\t\t" . '<td class="col2 title">';
 			$output .= '<a href="#" class="pizza-title">' . get_the_title() . '</a>';
 			$output .= get_the_post_thumbnail( get_the_ID(), 'wp_pizzeria_thumbnail' );
@@ -105,7 +106,7 @@ function pasta_loop(){
 <?php $odd = true; while ( have_posts() ) : the_post(); 
 			$categories = wp_get_post_terms( get_the_ID(), 'wp_pizzeria_ingredient' ); ?>
 			<tr class="pizza<?php if( $odd ) { echo ' odd '; $odd = false; }else{ echo ' even'; $odd = true; }  foreach ( (array)$categories as $category ) echo ' ' . $category->slug; ?>">
-				<td class="col1 menu-number"></td>
+				<td class="col1 menu-number"><?php global $post; echo $post->menu_order; ?></td>
 				<td class="col2 title"><a class="pizza-title" href="#"><?php the_title(); ?></a></td>
 				<td class="col3 description hidden"><div class="content"><?php the_content(); ?></div></td>
 				<td class="col5 price">

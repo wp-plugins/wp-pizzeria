@@ -66,8 +66,9 @@ function wp_pizzeria_by_ingredient_display_func() {
 		if ( !empty( $ingrediences ) )
 		foreach ( $ingrediences as $ingredience )
 			$class .= ' ' . $ingredience->slug;	
-		$output .= "\n\t\t" . '<tr class="'.$class.'">';
-		$output .= "\n\t\t\t" . '<td class="col1 menu-number">' . get_post_meta( get_the_ID(), '_wp_pizzeria_number', true) . '</td>';
+		$output .= "\n\t\t" . '<tr class="'.$class.'">';		
+		global $post;
+		$output .= "\n\t\t\t" . '<td class="col1 menu-number">' . $post->menu_order . '</td>';
 		$output .= "\n\t\t\t" . '<td class="col2 title">';
 			$output .= '<a href="#" class="pizza-title">' . get_the_title() . '</a>';
 			$output .= get_the_post_thumbnail( get_the_ID(), 'wp_pizzeria_thumbnail' );
@@ -75,18 +76,11 @@ function wp_pizzeria_by_ingredient_display_func() {
 		$output .= "\n\t\t\t" . '<td class="col3 description"><div class="content">'.apply_filters( 'the_content', get_the_content() ).'</div></td>';
 		//$output .= "\n\t\t\t" . '<td class="col4 thumb">' . get_the_post_thumbnail( get_the_ID(), 'wp_pizzeria_thumbnail' ) . '</td>';
 		$output .= "\n\t\t\t" . '<td class="col5 ingrediences">';
-		
-		
-		if ( !empty( $ingrediences ) ){
-			$output .= "\n\t\t\t\t" . '<ul>';
-			foreach ( $ingrediences as $ingredience ){
-				$output .= "\n\t\t\t\t\t".'<li>';
-				$output .= '<input type="checkbox" class="wp-pizzeria-ingredience '. $ingredience->slug .'" value="'.$ingredience->term_id.'" name="ingrediences['.$ingredience->slug.']" id="ingrediences['.$ingredience->slug.']">';
-				$output .= '<label for="ingrediences['.$ingredience->slug.']">'.$ingredience->name.'</label>';
-				$output .= "\n\t\t\t\t\t" . '</li>';
-			} 
-			$output .= "\n\t\t\t\t" . '</ul>';
-		}
+				
+		$ingrediences_array = array();
+		foreach ($ingrediences as $ingredience )
+			$ingrediences_array[] = $ingredience->name;
+		$output .= implode(', ', $ingrediences_array);
 		$output .= "\n\t\t\t" . '</td>';
 		/* manage prices */
 		unset($prices);
@@ -198,7 +192,7 @@ function pizza_loop(){
 <?php $odd = true; while ( have_posts() ) : the_post(); 
 			$ingrediences = wp_get_post_terms( get_the_ID(), 'wp_pizzeria_ingredient' ); ?>
 			<tr class="pizza<?php if( $odd ) { echo ' odd '; $odd = false; }else{ echo ' even'; $odd = true; }  foreach ( $ingrediences as $ingredience ) echo ' ' . $ingredience->slug; ?>">
-				<td class="col1 menu-number"></td>
+				<td class="col1 menu-number"><?php global $post; echo $post->menu_order; ?></td>
 				<td class="col2 title"><a class="pizza-title" href="#"><?php the_title(); ?></a></td>
 				<td class="col3 description hidden"><div class="content"><?php the_content(); ?></div></td>
 				<td class="col5 ingrediences">
