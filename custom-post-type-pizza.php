@@ -219,7 +219,8 @@ function wp_pizzeria_pizza_save_postdata( $post_id ) {
 				$prices[$key] = $_POST[$key.'_price']; 	
 		endforeach;
 	}
-	update_post_meta( $post_id, '_wp_pizzeria_prices', maybe_serialize( $prices ) );
+	if ( !defined( 'DOING_AJAX' ) && !DOING_AJAX )
+		update_post_meta( $post_id, '_wp_pizzeria_prices', maybe_serialize( $prices ) );
 	if ( array_key_exists( 'sizes', $pizzeria_settings ) && array_key_exists( 'primary', $pizzeria_settings['sizes'] ) && isset( $_POST[$pizzeria_settings['sizes']['primary'].'_price'] ) ) 
 		update_post_meta( $post_id, '_wp_pizzeria_price', $_POST[$pizzeria_settings['sizes']['primary'].'_price'] );
 	if( isset($_POST['wp_pizzeria_number']) ){
