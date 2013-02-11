@@ -11,7 +11,7 @@ function wp_pizzeria_beverage_display_func() {
 	$pizzeria_settings = maybe_unserialize( get_option('wp_pizzeria_settings') );
 	if ( !array( $pizzeria_settings ) )
 		$pizzeria_settings = array();
-	$pizzas = new WP_Query( array( 'post_type' => 'wp_pizzeria_beverage', 'posts_per_page' => -1) );
+	$pizzas = new WP_Query( array( 'post_type' => 'wp_pizzeria_beverage', 'posts_per_page' => -1, 'orderby' => 'menu_order', 'order' => 'ASC' ) );
 	$output .= '<table class="wp-pizzeria beverages">'."\n\t<thead>";
 	$table_footer_header = "\n\t\t<tr>";
 	$table_footer_header .= "\n\t\t\t" . '<th class="col1 menu-number">'.__('#', 'wp_pizzeria').'</th>';
@@ -76,6 +76,9 @@ function wp_pizzeria_beverage_display_scripts_method() {
 add_action('wp_enqueue_scripts', 'wp_pizzeria_beverage_display_scripts_method');
 
 function beverages_loop(){
+	global $wp_query;
+	$args = array_merge( $wp_query->query_vars, array( 'orderby' => 'menu_order', 'order' => 'ASC' ) );
+	query_posts( $args );
 	if ( have_posts() ) :
 	$pizzeria_settings = maybe_unserialize( get_option('wp_pizzeria_settings') );
 	if ( !array( $pizzeria_settings ) )
