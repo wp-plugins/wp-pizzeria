@@ -35,6 +35,9 @@ if (!defined('WP_PIZZERIA_PLUGIN_DIR'))
 if (!defined('WP_PIZZERIA_PLUGIN_URL'))
     define('WP_PIZZERIA_PLUGIN_URL', WP_PLUGIN_URL . '/' . WP_PIZZERIA_PLUGIN_NAME);
 
+/* Internationalize this plugin */
+load_plugin_textdomain('wp_pizzeria', false, basename( dirname( __FILE__ ) ) . '/languages' );
+
 /* Load custom post types */
 include 'custom-post-type-pizza.php';
 include 'custom-post-type-beverage.php';
