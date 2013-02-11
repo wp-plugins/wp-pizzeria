@@ -11,7 +11,7 @@ function wp_pizzeria_by_ingredient_display_func() {
 		$output .= '<ul class="wp-pizzeria-ingredienceFilter">';
 		foreach ( $ingrediences as $ingredience ){
 			$output .= '<li>';
-			if ( array_key_exists( $ingredience->term_id, $ingredient_images ) )			
+			if ( array_key_exists( $ingredience->term_id, (array)$ingredient_images ) )			
 				$output .= '<span class="pizza-image-wrapper"><img src="'.$ingredient_images[$ingredience->term_id].'" alt="'.$ingredience->name.'"/></span>';
 			$output .= '<input type="checkbox" value="'.$ingredience->term_id.'" name="ingredienceFilter['.$ingredience->slug.']" id="ingredienceFilter['.$ingredience->slug.']" class="'.$ingredience->slug.'">';
 			$output .= '<label for="ingredienceFilter['.$ingredience->slug.']">'.$ingredience->name.'</label>';
@@ -144,7 +144,7 @@ function pizza_loop(){
 		foreach ( $ingrediences as $ingredience ) : ?>
 			<li>
 			<?php
-			if ( array_key_exists( $ingredience->term_id, $ingredient_images ) ) : ?>			
+			if ( array_key_exists( $ingredience->term_id, (array)$ingredient_images ) ) : ?>			
 				<span class="pizza-image-wrapper"><img src="<?php echo $ingredient_images[$ingredience->term_id]; ?>" alt="<?php echo $ingredience->name; ?>"/></span>
 	<?php endif; ?>
 			<input type="checkbox" value="<?php echo $ingredience->term_id; ?>" name="ingredienceFilter[<?php echo $ingredience->slug; ?>]" id="ingredienceFilter[<?php echo $ingredience->slug; ?>]" class="<?php echo $ingredience->slug; ?>">

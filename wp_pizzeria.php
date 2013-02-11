@@ -5,7 +5,7 @@
  * Description: Turns WordPress instalation into powerful pizzeria site backend with ability to add pizzas, pizza ingredients and custom categorization of pizzas. Allows pizza restaurant owner to take his business website on higher level and increase his revenue from online presentation.
  * Author: David Biňovec
  * Author URI: http://david.binda.cz 
- * Version: 1.0.1
+ * Version: 1.0.2
  * License URI: http://www.gnu.org/licenses/gpl-2.0.html
  * Licence: GPLv2 or later
  */
