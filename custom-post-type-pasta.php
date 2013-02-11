@@ -95,17 +95,11 @@ add_action( 'save_post', 'wp_pizzeria_pasta_save_postdata' );
 
 function wp_pizzeria_pasta_save_postdata( $post_id ) {
 	if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) 
-		return;   
-	if ( get_post_type( $post_id ) == 'wp_pizzeria_pasta' ) {
-		if ( !current_user_can( 'edit_post', $post_id ) )
-			return;
-	}else{
-		if ( !current_user_can( 'edit_post', $post_id ) )
-			return;
-	}
-	if ( get_post_type($post_id) != 'wp_pizzeria_pasta' )
 		return;
-
+	if ( get_post_type($post_id) != 'wp_pizzeria_pasta' )
+		return;   
+	if ( !current_user_can( 'edit_post', $post_id ) )
+		return;
 	if ( isset( $_POST['pasta_price'] ) ){
 		update_post_meta( $post_id, '_wp_pizzeria_price', intval( $_POST['pasta_price'] ) ); 	
 	}

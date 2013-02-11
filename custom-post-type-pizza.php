@@ -198,15 +198,12 @@ add_action( 'save_post', 'wp_pizzeria_pizza_save_postdata' );
 function wp_pizzeria_pizza_save_postdata( $post_id ) {
 	if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) 
 		return;   
-	if ( get_post_type( $post_id ) == 'wp_pizzeria_pizza' ) {
-		if ( !current_user_can( 'edit_post', $post_id ) )
-			return;
-	}else{
-		if ( !current_user_can( 'edit_post', $post_id ) )
-			return;
-	}
-	if ( get_post_type($post_id) != 'wp_pizzeria_pizza' )
+	if ( defined( 'DOING_AJAX' ) && DOING_AJAX )
 		return;
+	if ( get_post_type( $post_id ) != 'wp_pizzeria_pizza' )
+		return;
+	if ( !current_user_can( 'edit_post', $post_id ) )
+			return;
 	$pizzeria_settings = maybe_unserialize( get_option('wp_pizzeria_settings') );
 	if ( !is_array($pizzeria_settings) )
 			$pizzeria_settings = array();	
@@ -218,8 +215,7 @@ function wp_pizzeria_pizza_save_postdata( $post_id ) {
 			if ( isset( $_POST[$key.'_price'] ) )
 				$prices[$key] = $_POST[$key.'_price']; 	
 		endforeach;
-	}
-	if ( !defined( 'DOING_AJAX' ) && !DOING_AJAX )
+	}	
 		update_post_meta( $post_id, '_wp_pizzeria_prices', maybe_serialize( $prices ) );
 	if ( array_key_exists( 'sizes', $pizzeria_settings ) && array_key_exists( 'primary', $pizzeria_settings['sizes'] ) && isset( $_POST[$pizzeria_settings['sizes']['primary'].'_price'] ) ) 
 		update_post_meta( $post_id, '_wp_pizzeria_price', $_POST[$pizzeria_settings['sizes']['primary'].'_price'] );
