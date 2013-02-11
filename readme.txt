@@ -3,7 +3,7 @@ Contributors: david.binda
 Tags: pizza, pizzeria, wordpress pizzeria, restaurant, menu, restaurant menu, carte, carte du jour
 Requires at least: 3.4
 Tested up to: 3.5.1
-Stable tag: 1.0.2
+Stable tag: 1.0.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -67,6 +67,8 @@ or
 
 == Changelog ==
 
+= 1.0.3 =
+Fix lorem ipsum message in shortcode mode
 = 1.0.2 =
 Fix array_key_exists() in pizza-display.php on line 14
 = 1.0.1 =

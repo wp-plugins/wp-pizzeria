@@ -72,7 +72,7 @@ function wp_pizzeria_by_ingredient_display_func() {
 			$output .= '<a href="#" class="pizza-title">' . get_the_title() . '</a>';
 			$output .= get_the_post_thumbnail( get_the_ID(), 'wp_pizzeria_thumbnail' );
 			$output .= '</td>';
-		$output .= "\n\t\t\t" . '<td class="col3 description"><div class="content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque dictum ornare purus, feugiat congue purus blandit et.</div></td>';
+		$output .= "\n\t\t\t" . '<td class="col3 description"><div class="content">'.apply_filters( 'the_content', get_the_content() ).'</div></td>';
 		//$output .= "\n\t\t\t" . '<td class="col4 thumb">' . get_the_post_thumbnail( get_the_ID(), 'wp_pizzeria_thumbnail' ) . '</td>';
 		$output .= "\n\t\t\t" . '<td class="col5 ingrediences">';
 		
