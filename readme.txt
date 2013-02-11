@@ -67,6 +67,11 @@ or
 
 == Changelog ==
 
+= 1.0.4 =
+Translation ready
+Added Czech translation
+Prevent prices being saved when using quick edit
+Reflect menu order on both shorcode and the loop display
 = 1.0.3 =
 Fix lorem ipsum message in shortcode mode
 = 1.0.2 =
