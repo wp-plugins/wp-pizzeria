@@ -3,7 +3,7 @@ Contributors: david.binda
 Tags: pizza, pizzeria, wordpress pizzeria, restaurant, menu, restaurant menu, carte, carte du jour
 Requires at least: 3.4
 Tested up to: 3.5.1
-Stable tag: 1.0.4
+Stable tag: 1.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -26,6 +26,11 @@ You get an ability to manage your pizzas in clean, fast and primarily WordPress 
 = Works in any theme =
 
 This plugin provides both template_functions and shortcodes - thus works in any theme you'd like to use.
+
+= Translations =
+
+Czech - David Biňovec - david.binda
+French - Stephane CRASNIER
 
 == Installation ==
 
@@ -58,20 +63,34 @@ In order to get new post types (pizza, beverage, pasta) to actually appear on yo
 1. Place `<?php pizza_loop(); ?>` into a copy of your archive template called archive-wp_pizzeria_pizza.php instead of default loop.
 1. Place `<?php beverages_loop(); ?>` into a copy of your archive template called archive-wp_pizzeria_beverage.php instead of default loop.
 1. Place `<?php pasta_loop(); ?>` into a copy of your archive template called archive-wp_pizzeria_pasta.php instead of default loop.
+1. Place `<?php dessert_loop(); ?>` into a copy of your archive template called archive-wp_pizzeria_dessert.php instead of default loop.
 
 or
 
-1. Place `[pasta]` shortcode into a page where you'd like to display pizzas.
+1. Place `[pizzas]` shortcode into a page where you'd like to display pizzas.
 1. Place `[beverages]` shortcode into a page where you'd like to display beverages.
-1. Place `[pizzas]` shortcode into a page where you'd like to display pasta.
+1. Place `[pasta]` shortcode into a page where you'd like to display pasta.
+1. Place `[desserts]` shortcode into a page where you'd like to display desserts.
+
+or
+
+1. Place `[pizzas cat="term-slug"]` shortcode into a page where you'd like to display pizzas only of selected term.
+1. Place `[beverages cat="term-slug"]` shortcode into a page where you'd like to display beverages only of selected term.
+1. Place `[pasta cat="term-slug"]` shortcode into a page where you'd like to display pasta only of selected term.
+1. Place `[desserts cat="term-slug"]` shortcode into a page where you'd like to display desserts only of selected term.
 
 == Changelog ==
 
+= 1.1 =
+New Dessert post type to you in your pizzeria
+Shortcodes suport category filter
+Can use decimals in price
+Added French translation
 = 1.0.4 =
-Translation ready
-Added Czech translation
 Prevent prices being saved when using quick edit
 Reflect menu order on both shorcode and the loop display
+Translation ready
+Added Czech translation
 = 1.0.3 =
 Fix lorem ipsum message in shortcode mode
 = 1.0.2 =

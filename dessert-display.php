@@ -1,5 +1,5 @@
 <?php
-function wp_pizzeria_pasta_display_func($atts) {
+function wp_pizzeria_dessert_display_func($atts) {
 	extract(shortcode_atts(array(
 		'cat' => 'wp_pizzeria_nocat',
 	), $atts));
@@ -9,15 +9,15 @@ function wp_pizzeria_pasta_display_func($atts) {
 	global $post;
 	$tmp_post = $post;
 
-	/* Loop all pizzas */
+	/* Loop all desserts */
 	$pizzeria_settings = maybe_unserialize( get_option('wp_pizzeria_settings') );
 	if ( !array( $pizzeria_settings ) )
 		$pizzeria_settings = array();
-	$args = array( 'post_type' => 'wp_pizzeria_pasta', 'posts_per_page' => -1, 'orderby' => 'menu_order', 'order' => 'ASC' );
+	$args = array( 'post_type' => 'wp_pizzeria_dessert', 'posts_per_page' => -1, 'orderby' => 'menu_order', 'order' => 'ASC' );
 	if ( $cat != 'wp_pizzeria_nocat' )
-		$args['wp_pizzeria_pasta_category'] = $cat;
+		$args['wp_pizzeria_dessert_category'] = $cat;
 	$pizzas = new WP_Query( $args );
-	$output .= '<table class="wp-pizzeria pasta">'."\n\t<thead>";
+	$output .= '<table class="wp-pizzeria desserts">'."\n\t<thead>";
 	$table_footer_header = "\n\t\t<tr>";
 	$table_footer_header .= "\n\t\t\t" . '<th class="col1 menu-number">'.__('#', 'wp_pizzeria').'</th>';
 	$table_footer_header .= "\n\t\t\t" . '<th class="col2 title">'.__('Title', 'wp_pizzeria').'</th>';
@@ -33,7 +33,7 @@ function wp_pizzeria_pasta_display_func($atts) {
 	$even = true;
 	while ( $pizzas->have_posts() ) : 
 		$pizzas->the_post();
-		$categories = wp_get_post_terms( get_the_ID(), 'wp_pizzeria_beverage_category' );
+		$categories = wp_get_post_terms( get_the_ID(), 'wp_pizzeria_dessert_category' );
 		if ($even == true){
 			$class = 'pizza even';	
 		}else{
@@ -73,24 +73,24 @@ function wp_pizzeria_pasta_display_func($atts) {
 	
 	return $output;
 }
-add_shortcode('pasta', 'wp_pizzeria_pasta_display_func');
+add_shortcode('desserts', 'wp_pizzeria_dessert_display_func');
 
-function wp_pizzeria_pasta_display_scripts_method() {
+function wp_pizzeria_dessert_display_scripts_method() {
 	wp_enqueue_script( 'filter-pizzas', plugins_url('/js/filter-pizzas.js', __FILE__), array('jquery') );
 }    
  
-add_action('wp_enqueue_scripts', 'wp_pizzeria_pasta_display_scripts_method');
+add_action('wp_enqueue_scripts', 'wp_pizzeria_dessert_display_scripts_method');
 
-function pasta_loop(){
+function desserts_loop(){
 	global $wp_query;
 	$args = array_merge( $wp_query->query_vars, array( 'orderby' => 'menu_order', 'order' => 'ASC' ) );
-	query_posts( $args );	
+	query_posts( $args );
 	if ( have_posts() ) :
 	$pizzeria_settings = maybe_unserialize( get_option('wp_pizzeria_settings') );
 	if ( !array( $pizzeria_settings ) )
 		$pizzeria_settings = array();	
 	 ?>
-	<table class="wp-pizzeria pasta">
+	<table class="wp-pizzeria desserts">
 		<thead>
 			<tr>
 				<th class="col1 menu-number">#</th>

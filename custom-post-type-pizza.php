@@ -183,6 +183,8 @@ function wp_pizzeria_number_inner_custom_box($post) {
 	}
 	if( $post_type == 'wp_pizzeria_pizza' ){
 		$label = __('Pizza menu number', 'wp_pizzeria');
+	}if( $post_type == 'wp_pizzeria_dessert' ){
+		$label = __('Dessert menu number', 'wp_pizzeria');
 	}else{
 		$label = __('Beverage menu number', 'wp_pizzeria');
 	}

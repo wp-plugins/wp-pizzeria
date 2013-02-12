@@ -1,6 +1,8 @@
 <?php
-function wp_pizzeria_beverage_display_func() {
-
+function wp_pizzeria_beverage_display_func($atts) {
+	extract(shortcode_atts(array(
+		'cat' => 'wp_pizzeria_nocat',
+	), $atts));
    $output = '';  
 	
 	/* Save original post*/	
@@ -11,7 +13,10 @@ function wp_pizzeria_beverage_display_func() {
 	$pizzeria_settings = maybe_unserialize( get_option('wp_pizzeria_settings') );
 	if ( !array( $pizzeria_settings ) )
 		$pizzeria_settings = array();
-	$pizzas = new WP_Query( array( 'post_type' => 'wp_pizzeria_beverage', 'posts_per_page' => -1, 'orderby' => 'menu_order', 'order' => 'ASC' ) );
+	$args = array( 'post_type' => 'wp_pizzeria_beverage', 'posts_per_page' => -1, 'orderby' => 'menu_order', 'order' => 'ASC' );
+	if ( $cat != 'wp_pizzeria_nocat' )
+		$args['wp_pizzeria_beverage_category'] = $cat;
+	$pizzas = new WP_Query( $args );
 	$output .= '<table class="wp-pizzeria beverages">'."\n\t<thead>";
 	$table_footer_header = "\n\t\t<tr>";
 	$table_footer_header .= "\n\t\t\t" . '<th class="col1 menu-number">'.__('#', 'wp_pizzeria').'</th>';
@@ -51,7 +56,7 @@ function wp_pizzeria_beverage_display_func() {
 			$output .= "\n\t\t\t" . '<td class="col5 price">';
 			if( array_key_exists( 'currency', $pizzeria_settings ) && array_key_exists( 'currency_pos', $pizzeria_settings ) && $pizzeria_settings['currency_pos'] == 'before' )					
 				$output .= $pizzeria_settings['currency']; 
-			$output .= intval(get_post_meta( $post->ID, '_wp_pizzeria_price', true ));
+			$output .= get_post_meta( $post->ID, '_wp_pizzeria_price', true );
 			if( array_key_exists( 'currency', $pizzeria_settings ) && (!array_key_exists( 'currency_pos', $pizzeria_settings ) || $pizzeria_settings['currency_pos'] == 'after' ) )
 				$output .= $pizzeria_settings['currency'];
 			$output .= '</td>';	
@@ -114,7 +119,7 @@ function beverages_loop(){
 					if( get_post_meta( get_the_ID(), '_wp_pizzeria_price', true ) !== false ){
 						if( array_key_exists( 'currency', $pizzeria_settings ) && array_key_exists( 'currency_pos', $pizzeria_settings ) && $pizzeria_settings['currency_pos'] == 'before' ) 
 							echo $pizzeria_settings['currency'];		
-						echo intval(get_post_meta( get_the_ID(), '_wp_pizzeria_price', true ));
+						echo get_post_meta( get_the_ID(), '_wp_pizzeria_price', true );
 						if( array_key_exists( 'currency', $pizzeria_settings ) && (!array_key_exists( 'currency_pos', $pizzeria_settings ) || $pizzeria_settings['currency_pos'] == 'after' ) ) 
 							echo $pizzeria_settings['currency'];
 					}					

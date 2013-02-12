@@ -5,7 +5,7 @@
  * Description: Turns WordPress instalation into powerful pizzeria site backend with ability to add pizzas, pizza ingredients and custom categorization of pizzas. Allows pizza restaurant owner to take his business website on higher level and increase his revenue from online presentation.
  * Author: David Biňovec
  * Author URI: http://david.binda.cz 
- * Version: 1.0.4
+ * Version: 1.1
  * License URI: http://www.gnu.org/licenses/gpl-2.0.html
  * Licence: GPLv2 or later
  */
@@ -47,12 +47,14 @@ add_action('plugins_loaded', 'wp_pizzeria_init');
 include 'custom-post-type-pizza.php';
 include 'custom-post-type-beverage.php';
 include 'custom-post-type-pasta.php';
+include 'custom-post-type-dessert.php';
 
 /* Load custom taxonomies */
 include 'taxonomy-pizza-categories.php';
 include 'taxonomy-pizza-ingredients.php';
 include 'taxonomy-beverage-categories.php';
 include 'taxonomy-pasta-categories.php';
+include 'taxonomy-dessert-categories.php';
 
 /* Load wp_pizzeria settings page */
 include 'pizza-settings-page.php';

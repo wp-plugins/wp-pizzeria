@@ -72,7 +72,7 @@ function wp_pizzeria_add_custom_box_to_pasta() {
 
 
 function wp_pizzeria_pasta_price_inner_custom_box($post) { 
-	$price = intval( get_post_meta( $post->ID, '_wp_pizzeria_price', true ) );
+	$price = get_post_meta( $post->ID, '_wp_pizzeria_price', true );
 	if ( $price === false )
 		$price = '';	
 	$pizzeria_settings = maybe_unserialize( get_option('wp_pizzeria_settings') );
@@ -101,7 +101,7 @@ function wp_pizzeria_pasta_save_postdata( $post_id ) {
 	if ( !current_user_can( 'edit_post', $post_id ) )
 		return;
 	if ( isset( $_POST['pasta_price'] ) ){
-		update_post_meta( $post_id, '_wp_pizzeria_price', intval( $_POST['pasta_price'] ) ); 	
+		update_post_meta( $post_id, '_wp_pizzeria_price', $_POST['pasta_price'] ); 	
 	}
 }
 
@@ -188,7 +188,7 @@ function manage_wp_pizzeria_pasta_columns( $column, $post_id ) {
 			if( get_post_meta( $post_id, '_wp_pizzeria_price', true ) !== false ){
 				if( array_key_exists( 'currency', $pizzeria_settings ) && array_key_exists( 'currency_pos', $pizzeria_settings ) && $pizzeria_settings['currency_pos'] == 'before' )					
 					echo $pizzeria_settings['currency'];
-				echo intval(get_post_meta( $post_id, '_wp_pizzeria_price', true ));
+				echo get_post_meta( $post_id, '_wp_pizzeria_price', true );
 				if( array_key_exists( 'currency', $pizzeria_settings ) && (!array_key_exists( 'currency_pos', $pizzeria_settings ) || $pizzeria_settings['currency_pos'] == 'after' ) )
 					echo $pizzeria_settings['currency'];
 			}

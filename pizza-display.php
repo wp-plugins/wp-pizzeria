@@ -1,6 +1,8 @@
 <?php
-function wp_pizzeria_by_ingredient_display_func() {
-
+function wp_pizzeria_by_ingredient_display_func($atts) {
+	extract(shortcode_atts(array(
+		'cat' => 'wp_pizzeria_nocat',
+	), $atts));
    $output = '';  
 
 	//output ingredience filter 
@@ -29,7 +31,10 @@ function wp_pizzeria_by_ingredient_display_func() {
 	$pizzeria_settings = maybe_unserialize( get_option('wp_pizzeria_settings') );
 	if ( !array( $pizzeria_settings ) )
 		$pizzeria_settings = array();
-	$pizzas = new WP_Query( array( 'post_type' => 'wp_pizzeria_pizza', 'posts_per_page' => -1, 'orderby' => 'menu_order', 'order' => 'ASC' ) );
+	$args = array( 'post_type' => 'wp_pizzeria_pizza', 'posts_per_page' => -1, 'orderby' => 'menu_order', 'order' => 'ASC' );
+	if ( $cat != 'wp_pizzeria_nocat' )
+		$args['wp_pizzeria_category'] = $cat;
+	$pizzas = new WP_Query( $args );
 	$output .= '<table class="wp-pizzeria pizzas">'."\n\t<thead>";
 	$table_footer_header = "\n\t\t<tr>";
 	$table_footer_header .= "\n\t\t\t" . '<th class="col1 menu-number">'.__('#', 'wp_pizzeria').'</th>';
@@ -67,7 +72,9 @@ function wp_pizzeria_by_ingredient_display_func() {
 		foreach ( $ingrediences as $ingredience )
 			$class .= ' ' . $ingredience->slug;	
 		$output .= "\n\t\t" . '<tr class="'.$class.'">';		
-		global $post;
+		global $post;extract(shortcode_atts(array(
+		'cat' => 'wp_pizzeria_nocat',
+	), $atts));
 		$output .= "\n\t\t\t" . '<td class="col1 menu-number">' . $post->menu_order . '</td>';
 		$output .= "\n\t\t\t" . '<td class="col2 title">';
 			$output .= '<a href="#" class="pizza-title">' . get_the_title() . '</a>';
@@ -222,7 +229,7 @@ function pizza_loop(){
 					continue; ?>
 				<td class="col<?php echo $i; ?> price <?php echo $key; ?>">
 			<?php			
-				if ( array_key_exists( $key, $prices ) && is_numeric( $prices[$key] ) ){
+				if ( array_key_exists( $key, $prices ) ){
 					if( array_key_exists( 'currency', $pizzeria_settings ) && array_key_exists( 'currency_pos', $pizzeria_settings ) && $pizzeria_settings['currency_pos'] == 'before' ) 
 						echo $pizzeria_settings['currency'];						
 					echo $prices[$key];					

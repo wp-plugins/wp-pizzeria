@@ -2,7 +2,7 @@
 function wp_pizzeria_display_post_type_nav_box(){
 	 $hidden_nav_boxes = get_user_option( 'metaboxhidden_nav-menus' );
 
-    $post_types = array( 'wp_pizzeria_pizza', 'wp_pizzeria_beverage', 'wp_pizzeria_pasta' );
+    $post_types = array( 'wp_pizzeria_pizza', 'wp_pizzeria_beverage', 'wp_pizzeria_pasta', 'wp_pizzeria_dessert' );
     foreach ( $post_types as $post_type ){
     $post_type_nav_box = 'add-'.$post_type;
 	    if(in_array($post_type_nav_box, (array)$hidden_nav_boxes)):
@@ -22,7 +22,7 @@ function wp_pizzeria_remove_post_type_nav_box(){
 	global $current_screen;
 	if ( $current_screen->base != 'nav-menus' )
 		return;
-	$post_types = array( 'wp_pizzeria_pizza', 'wp_pizzeria_beverage', 'wp_pizzeria_pasta' );
+	$post_types = array( 'wp_pizzeria_pizza', 'wp_pizzeria_beverage', 'wp_pizzeria_pasta', 'wp_pizzeria_dessert' );
 	foreach ( $post_types as $post_type ) {
 		$post_type = get_post_type_object( $post_type );
 		$post_type = apply_filters( 'nav_menu_meta_box_object', $post_type );
